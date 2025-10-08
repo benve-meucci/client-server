@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws UnknownHostException, IOException {
@@ -13,7 +14,10 @@ public class Main {
         System.out.println("Connected.");
         BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
         PrintWriter out = new PrintWriter(s.getOutputStream(), true);
-        out.println("hello world");
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Insert string:");
+        String myString = keyboard.nextLine();
+        out.println(myString);
         String result = in.readLine();
         System.out.println("Received: " + result);
     }
